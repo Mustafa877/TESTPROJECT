@@ -71,56 +71,6 @@ const createPost = async () => {
   }
 };
 
-const deletePost = async (postId) => {
-  const result = await Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!"
-  });
-
-  if (result.isConfirmed) {
-    try {
-      await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
-        method: 'DELETE',
-      });
-      posts.value = posts.value.filter(post => post.id !== postId);
-      savePostsToLocalStorage(); 
-      showNotification.value = true;
-      notificationMessage.value = `Post ${postId} deleted successfully.`;
-      setTimeout(() => {
-        showNotification.value = false;
-      }, 2000);
-    } catch (error) {
-      showNotification.value = true;
-      notificationMessage.value = `Error deleting post ${postId}.`;
-      console.error("Error deleting post:", error);
-      setTimeout(() => {
-        showNotification.value = false;
-      }, 2000);
-    }
-  }
-};
-
-const totalPages = computed(() => {
-  return Math.ceil(posts.value.length / pageSize);
-});
-
-const paginatedPosts = computed(() => {
-  const start = (currentPage.value - 1) * pageSize;
-  const end = start + pageSize;
-  return posts.value.slice(start, end);
-});
-
-const goToPage = (page) => {
-  if (page >= 1 && page <= totalPages.value) {
-    currentPage.value = page;
-  }
-};
-
 onMounted(() => {
   loadPostsFromLocalStorage(); 
 });
@@ -143,9 +93,6 @@ onMounted(() => {
       <button @click="createPost">Create Post</button>
     </div>
 
-     
-
-   
   </div>
 </template>
 
