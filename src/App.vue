@@ -10,6 +10,16 @@
       <v-list>
         <v-list-item @click="$router.push('/')">Home</v-list-item>
         <v-list-item @click="$router.push('/Typicode/')">Posts</v-list-item>
+        <v-list-item @click="$router.push('/AccordionComponent/')">AccordionComponent</v-list-item>
+        <v-list-item @click="$router.push('/AmazingCalculator/')">AmazingCalculator</v-list-item>
+        <v-list-item @click="$router.push('/DadJokes/')">DadJokes</v-list-item>
+        <v-list-item @click="$router.push('/FormValidation/')">FormValidation</v-list-item>
+        <v-list-item @click="$router.push('/GithubUsersSearch/')">GithubUsersSearch</v-list-item>
+        <v-list-item @click="$router.push('/PasswordGenerator/')">PasswordGenerator</v-list-item>
+        <v-list-item @click="$router.push('/ProgressSteps/')">ProgressSteps</v-list-item>
+        <v-list-item @click="$router.push('/RandomQuoteGenerator/')">RandomQuoteGenerator</v-list-item>
+        <v-list-item @click="$router.push('/TodoList/')">TodoList</v-list-item>
+        <v-list-item @click="$router.push('/WikiComponent/')">WikiComponent</v-list-item>
       </v-list>
     </v-navigation-drawer>
 

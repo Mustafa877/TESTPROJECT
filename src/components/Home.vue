@@ -47,7 +47,7 @@ export default {
 </script>
 
 <style scoped>
-/* Scoped styles for the creative dialog */
+
 .creative-dialog {
   background-color: #f9f9f9;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
@@ -56,6 +56,6 @@ export default {
 }
 
 .headline {
-  color: #673ab7; /* Custom headline color */
+  color: #673ab7;  
 }
 </style>
