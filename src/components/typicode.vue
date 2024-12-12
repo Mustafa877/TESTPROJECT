@@ -75,6 +75,25 @@
 </template>
 
 <script>
+
+function showToast(icon, title) {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-center",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+
+  Toast.fire({
+    icon: icon,
+    title: title
+  });
+}
 import Swal from 'sweetalert2';
 
 export default {
@@ -176,37 +195,19 @@ export default {
       const index = this.posts.indexOf(post);
       if (index !== -1) {
         this.posts.splice(index, 1);
-        Swal.fire({
-          title: 'Deleted!',
-          text: 'Your post has been deleted.',
-          icon: 'success',
-          showConfirmButton: false,
-          timer: 1000
-        });
+        showToast('success', 'Deleted it successfully');
       }
     },
 
     save() {
       if (this.editedIndex > -1) {
         Object.assign(this.posts[this.editedIndex], this.editedPost);
-        Swal.fire({
-          title: 'Post Updated!',
-          text: 'Your post has been successfully updated.',
-          icon: 'success',
-          showConfirmButton: false,
-          timer: 1500
-        });
+        showToast('success', 'successfully updated');
       } else {
         this.posts.push(this.editedPost);
-        Swal.fire({
-          title: 'Post Saved!',
-          text: 'Your new post has been successfully saved.',
-          icon: 'success',
-          showConfirmButton: false,
-          timer: 1500
-        });
+        showToast('success', 'successfully saved');
       }
-      this.close(); 
+      this.close();
     },
     close() {
       this.dialog = false;

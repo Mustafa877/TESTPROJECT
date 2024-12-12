@@ -4,12 +4,12 @@ import Home from '../components/Home.vue';
 
 const routes = [
   {
-    path: '/',
+    path: '/typicode',
     name: 'Typicode',
     component: Typicode,
   },
   {
-    path: '/home',
+    path: '/',
     name: 'Home',
     component: Home,
   },
