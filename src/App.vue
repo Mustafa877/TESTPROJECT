@@ -9,7 +9,7 @@
     <v-navigation-drawer v-model="drawer" :location="$vuetify.display.mobile ? 'bottom' : undefined" temporary>
       <v-list>
         <v-list-item @click="$router.push('/')">Home</v-list-item>
-        <v-list-item @click="$router.push('/Typicode/')">Posts</v-list-item>
+        <v-list-item @click="$router.push('/Typicode')">Posts</v-list-item>
         <v-list-item @click="$router.push('/AccordionComponent/')">AccordionComponent</v-list-item>
         <v-list-item @click="$router.push('/AmazingCalculator/')">AmazingCalculator</v-list-item>
         <v-list-item @click="$router.push('/DadJokes/')">DadJokes</v-list-item>
